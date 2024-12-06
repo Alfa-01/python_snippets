@@ -1,0 +1,16 @@
+1. The messages framework
+2. Позволяет отображать короткое (flash) сообщение, с уровневым форматирование (как при логировании),
+   сохраняя их в запросе и отображая при следующем
+3. https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
+4. 
+from django.contrib import messages
+
+messages.add_message(request, messages.INFO, "Hello world.")
+5. 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}

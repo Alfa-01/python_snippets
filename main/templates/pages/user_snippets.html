@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block pagename %}
+  <div class="row">
+    <div class="col text-start">
+      <h3>{{ pagename }}</h3><hr />
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <table class="table table-striped table-borderless">
+    <thread>
+      <tr>
+        <th class="table-dark" scope="col">ID</th>
+        <th class="table-dark" scope="col">Название</th>
+        <th class="table-dark" scope="col">Дата создания</th>
+      </tr>
+    </thread>
+    <tbody>
+      {% for snippet in snippets %}
+        <tr>
+          <td>{{ snippet.id }}</td>
+          <td>
+            <a href="{{ snippet.id }}">{{ snippet.name }}</a>
+          </td>
+          <td>{{ snippet.creation_date }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
